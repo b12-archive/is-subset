@@ -1,2 +1,1 @@
-import module from './module/index';
-export {module as default};
+export * from './module/index';
