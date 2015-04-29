@@ -1,5 +1,5 @@
 { "name": "is-subset"
-, "version": "0.0.0-work-in-progress"
+, "version": "0.1.0"
 , "description": "Check if an object is contained within another one"
 
 , "dependencies":
