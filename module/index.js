@@ -7,14 +7,12 @@ const isSubset = (superset, subset) => {
       !superset.propertyIsEnumerable(key)
     ) return false;
 
-    const item = subset[key];
+    const subsetItem = subset[key];
     const supersetItem = superset[key];
     if (
-      (
-        (typeof item === 'object' && item !== null) &&
-        !isSubset(supersetItem, item)
-      ) ||
-      supersetItem !== item
+      (typeof subsetItem === 'object' && subsetItem !== null) ?
+      !isSubset(supersetItem, subsetItem) :
+      supersetItem !== subsetItem
     ) return false;
 
     return true;
