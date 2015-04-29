@@ -12,7 +12,7 @@
   , "coverage": "isparta cover test.js"
   , "develop": "nodangel --ignore node_modules --exec 'npm run test:lite'"
   , "prepublish": "npm run clean && npm run build"
-  , "test": "jshint . && babel {./,module/}*.js --out-dir .es5 && node .es5/test.js | tap-spec"
+  , "test": "jshint . && babel *.js module/*.js --out-dir .es5 && node .es5/test.js | tap-spec"
   , "test:lite": "babel-node test.js | tap-spec"
   }
 
