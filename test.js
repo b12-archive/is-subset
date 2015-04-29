@@ -149,3 +149,43 @@ test('Detects deep non-subsets.', (is) => {
 
   is.end();
 });
+
+test('Works with array values.', (is) => {
+  is.ok(isSubset(
+      {a: []},
+      {a: []}
+    ), 'treating empty arrays as equal'
+  );
+
+  is.ok(isSubset(
+      {a: [1]},
+      {a: [1]}
+    ), 'treating equal arrays as equal'
+  );
+
+  is.notOk(isSubset(
+      {a: [1]},
+      {a: [1, 2]}
+    ), 'detecting differences in length'
+  );
+
+  is.notOk(isSubset(
+      {a: [1]},
+      {a: [2]}
+    ), 'detecting differences in values'
+  );
+
+  is.ok(isSubset(
+      {a: [1, 2, 3]},
+      {a: [1, 2]}
+    ), 'treating array subsets as subsets'
+  );
+
+  is.notOk(isSubset(
+      {a: [1, 2, 3]},
+      {a: [1, 3]}
+    ), '– only if the order is identical'
+  );
+
+  is.end();
+});
