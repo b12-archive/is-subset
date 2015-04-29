@@ -1,6 +1,6 @@
-{ "name": "a"
+{ "name": "is-subset"
 , "version": "0.0.0-work-in-progress"
-, "description": "…"
+, "description": "Check if an object is contained within another one"
 
 , "dependencies":
   {}
@@ -12,14 +12,19 @@
   , "coverage": "isparta cover test.js"
   , "develop": "nodangel --ignore node_modules --exec 'npm run test:lite'"
   , "prepublish": "npm run clean && npm run build"
-  , "test": "jshint && npm run test:lite"
+  , "test": "jshint . && npm run test:lite"
   , "test:lite": "babel-node test.js | tap-spec"
   }
 
 , "devDependencies":
-  { "?": "Run `npm install babel coveralls isparta jshint nodangel tap-spec@2` and save it here"
+  { "babel": "5.1.13"
+  , "coveralls": "2.11.2"
+  , "isparta": "3.0.3"
+  , "jshint": "2.7.0"
+  , "nodangel": "1.3.8"
+  , "tap-spec": "2.2.2"
 
-  , "?": "Run `npm install tape-catch` and save it here"
+  , "tape-catch": "1.0.4"
   }
 
 , "files":
@@ -32,11 +37,16 @@
 
 , "license": "MIT"
 , "keywords":
-  [ "…"
+  [ "contains"
+  , "contain"
+  , "object"
+  , "superset"
+  , "deep-equal"
+  , "equal"
   ]
 , "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
 , "repository":
   { "type": "git"
-  , "url": "git@github.com:tomekwi/….git"
+  , "url": "git@github.com:studio-b12/is-subset.git"
   }
 }
