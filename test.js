@@ -36,7 +36,7 @@ test('Detects shallow subsets.', (is) => {
   is.end();
 });
 
-test('Detects non-subsets.', (is) => {
+test('Detects shallow non-subsets.', (is) => {
   is.notOk(isSubset(
       {},
       {a: 1}
@@ -77,6 +77,46 @@ test('Detects non-subsets.', (is) => {
       {a: 1},
       {a: 1, b: undefined}
     ), 'seeing the difference between undefined reference and undefined value'
+  );
+
+  is.end();
+});
+
+test('Detects deep subsets.', (is) => {
+  is.ok(isSubset(
+      {a: {}},
+      {a: {}}
+    ), 'with nested empty objects'
+  );
+
+  is.ok(isSubset(
+      {a: {}},
+      {}
+    ), 'with an empty subset'
+  );
+
+  is.ok(isSubset(
+      {a: {b: 2}},
+      {a: {}}
+    ), 'with a nested empty subset'
+  );
+
+  is.ok(isSubset(
+      {a: {b: 2}},
+      {a: {b: 2}}
+    ), 'with deep-equal objects'
+  );
+
+  is.ok(isSubset(
+      {a: 1, b: true, c: null, d: 'D', e: undefined, 'F-': 'anything'},
+      {a: 1, b: true, c: null, d: 'D', e: undefined, 'F-': 'anything'}
+    ), 'with deep-equal objects of different kinds of values'
+  );
+
+  is.ok(isSubset(
+      {a: 1, b: {c: 3, d: 4}, e: {f: {g: 7, h: {i: 9}}}},
+      {a: 1, b: {d: 4}, e: {f: {g: 7}}}
+    ), 'with multiple levels of nesting'
   );
 
   is.end();
