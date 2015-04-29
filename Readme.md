@@ -23,11 +23,6 @@ is-subset
 **Check if an object is contained within another one.**
 
 
-**⚠ Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
-
-[Thoughts and ideas]:  https://github.com/studio-b12/is-subset/issues
-
-
 
 
 Installation
@@ -43,7 +38,56 @@ $ npm install is-subset
 Usage
 -----
 
-…
+1) Import the module:
+
+```js
+import isSubset from 'is-subset/module';
+
+// …or:
+var isSubset = require('is-subset');
+```
+
+2) These are true:
+
+```js
+isSubset(
+  {a: 1, b: 2},
+  {a: 1}
+);
+
+isSubset(
+  {a: 1, b: {c: 3, d: 4}, e: 5},
+  {a: 1, b: {c: 3}}
+);
+
+isSubset(
+  {a: 1, bcd: [1, 2, 3]},
+  {a: 1, bcd: [1, 2]}
+);
+```
+
+…and these are false:
+
+```js
+isSubset(
+  {a: 1},
+  {a: 2}
+);
+
+isSubset(
+  {a: 1},
+  {a: 1, b: 2}
+);
+
+isSubset(
+  {a: 1, bcd: [1, 2, 3]},
+  {a: 1, bcd: [1, 3]}
+);
+```
+
+See the [specs][] for more info.
+
+[specs]:  ./test.js
 
 
 
