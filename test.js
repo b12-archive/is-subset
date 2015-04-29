@@ -189,3 +189,19 @@ test('Works with array values.', (is) => {
 
   is.end();
 });
+
+test('Returns false for non-object “objects”.', (is) => {
+  is.notOk(isSubset(
+      'a',
+      {}
+    ), 'for the superset'
+  );
+
+  is.notOk(isSubset(
+      {},
+      'a'
+    ), 'for the subset'
+  );
+
+  is.end();
+});

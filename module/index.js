@@ -16,13 +16,13 @@
   * @alias     isSubset
   */
 const isSubset = (superset, subset) => {
-  if (subset == null) return false;
+  if (
+    (typeof superset !== 'object' || superset === null) ||
+    (typeof subset !== 'object' || subset === null)
+  ) return false;
 
   return Object.keys(subset).every((key) => {
-    if (
-      (typeof superset !== 'object' || superset === null) ||
-      !superset.propertyIsEnumerable(key)
-    ) return false;
+    if (!superset.propertyIsEnumerable(key)) return false;
 
     const subsetItem = subset[key];
     const supersetItem = superset[key];
