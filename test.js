@@ -121,3 +121,31 @@ test('Detects deep subsets.', (is) => {
 
   is.end();
 });
+
+test('Detects deep non-subsets.', (is) => {
+  is.notOk(isSubset(
+      {a: {}},
+      {a: {b: 1}}
+    ), 'with an empty object in the superset'
+  );
+
+  is.notOk(isSubset(
+      {a: {b: 2}},
+      {a: {b: 3}}
+    ), 'with differences in values in a nested object'
+  );
+
+  is.notOk(isSubset(
+      {z: {a: 1}},
+      {z: {b: 1}}
+    ), 'with differences in keys in a nested object'
+  );
+
+  is.notOk(isSubset(
+      {z: {a: 1}},
+      {z: {a: 1, b: 2}}
+    ), 'with different sizes of a nested object'
+  );
+
+  is.end();
+});
