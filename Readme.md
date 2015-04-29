@@ -95,17 +95,17 @@ See the [specs][] for more info.
 API
 ===
 
-###  isSubset(superset, subset)  ###
+###  *isSubset*(*superset*, *subset*)  ###
 
 Check if an object is contained within another object.
 
 Returns `true` if:
-- all enumerable keys of `subset` are also enumerable in `superset`, and
-- every value assigned to an enumerable key of `subset` strictly equals the value assigned to the same key of `superset` – or is a subset of it.
+- all enumerable keys of *subset* are also enumerable in *superset*, and
+- every value assigned to an enumerable key of *subset* strictly equals the value assigned to the same key of *superset* – or is a subset of it.
 
 **Parameters:**
-- `Object` superset
-- `Object` subset
+- `Object` *superset*
+- `Object` *subset*
 
 **Return value:**
 - `Boolean`
