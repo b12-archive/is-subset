@@ -1,6 +1,6 @@
 import test from 'tape-catch';
 
-import isSubset from './module';
+import { isSubset } from './module';
 
 test('Detects shallow subsets.', (is) => {
   is.ok(isSubset(
