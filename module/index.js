@@ -21,6 +21,10 @@ const isSubset = (superset, subset) => {
     (typeof subset !== 'object' || subset === null)
   ) return false;
 
+  if (
+    (superset instanceof Date || subset instanceof Date)
+  ) return superset.valueOf() === subset.valueOf();
+
   return Object.keys(subset).every((key) => {
     if (!superset.propertyIsEnumerable(key)) return false;
 
