@@ -33,6 +33,18 @@ test('Detects shallow subsets.', (is) => {
     ), 'with simple subsets'
   );
 
+  is.ok(isSubset(
+      {a: new Date(0), b: 2},
+      {a: new Date(0)}
+    ), 'with simple subsets containing dates'
+  );
+
+  is.ok(isSubset(
+      {a: new Date(0), b: 2},
+      {}
+    ), 'with an empty subset and a date'
+  );
+
   is.end();
 });
 
@@ -77,6 +89,24 @@ test('Detects shallow non-subsets.', (is) => {
       {a: 1},
       {a: 1, b: undefined}
     ), 'seeing the difference between undefined reference and undefined value'
+  );
+
+  is.notOk(isSubset(
+      {a: new Date(0)},
+      {a: new Date(1)}
+    ), 'seeing the difference between two dates'
+  );
+
+  is.notOk(isSubset(
+      {a: new Date()},
+      {a: {}}
+    ), 'seeing the difference between a date and an object'
+  );
+
+  is.notOk(isSubset(
+      {a: {}},
+      {a: new Date()}
+    ), 'seeing the difference between an object and a date'
   );
 
   is.end();
