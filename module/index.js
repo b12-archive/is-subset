@@ -15,7 +15,7 @@
   * @function  default
   * @alias     isSubset
   */
-const isSubset = (superset, subset) => {
+export function isSubset(superset, subset) {
   if (
     (typeof superset !== 'object' || superset === null) ||
     (typeof subset !== 'object' || subset === null)
@@ -38,6 +38,4 @@ const isSubset = (superset, subset) => {
 
     return true;
   });
-};
-
-export {isSubset as default};
+}
