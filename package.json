@@ -27,14 +27,6 @@
   , "tape-catch": "1.0.4"
   }
 
-, "files":
-  [ "/*.js"
-  , "/module/"
-  , "/test/"
-  , "/Readme.md"
-  , "/License.md"
-  ]
-
 , "license": "MIT"
 , "keywords":
   [ "contains"
