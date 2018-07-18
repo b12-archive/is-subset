@@ -28,13 +28,12 @@
   }
 
 , "files":
-  [ "/*.js"
-  , "/module/"
-  , "/test/"
-  , "/Readme.md"
-  , "/License.md"
+  [  "index.js"
+,   "module"
+,   "module.js"
+,   "Readme.md"
+,   "License.md"
   ]
-
 , "license": "MIT"
 , "keywords":
   [ "contains"
